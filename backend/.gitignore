@@ -1,0 +1,4 @@
+.env
+storage/*.json
+storage/*.sqlite*
+storage/*.log
