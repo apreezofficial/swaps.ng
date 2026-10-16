@@ -2,7 +2,6 @@ import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
 import Categories from '@/components/Categories';
 import HowItWorks from '@/components/HowItWorks';
-import SwapCalculator from '@/components/SwapCalculator';
 import Features from '@/components/Features';
 import Escrow from '@/components/Escrow';
 import Vendors from '@/components/Vendors';
@@ -16,7 +15,6 @@ export default function Home() {
       <Marquee />
       <Categories />
       <HowItWorks />
-      <SwapCalculator />
       <Features />
       <Escrow />
       <Vendors />

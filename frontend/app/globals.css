@@ -531,6 +531,102 @@ input:focus { outline: none; border-color: var(--g-500); box-shadow: 0 0 0 4px r
   .dash-soon { align-items: flex-start; }
 }
 
+/* =====================================================
+   v4: carswap.ng typography + cdcare.app UI feel
+   Inter in heavy weights, uppercase tracked labels, soft tinted
+   page, pill chips, rounded app-style cards, mobile tab bar.
+   ===================================================== */
+:root { --font-display: var(--font-body); --page: #f4faf6; --field: #f8fcf9; }
+body { background: var(--page); }
+h1, h2, h3, .logo, strong, b, .btn { font-weight: 800; }
+.logo { font-weight: 900; letter-spacing: -.045em; }
+h2 { font-weight: 800; letter-spacing: -.04em; }
+.section-tint { background: #fff; }
+.bg-mesh { background: linear-gradient(180deg, var(--page), var(--g-50)); }
+
+/* pill eyebrows (cdcare section chips) in uppercase tracked type (carswap labels) */
+.eyebrow { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 99px; background: var(--g-100); color: var(--g-700); font-size: 11.5px; font-weight: 800; letter-spacing: .18em; margin-bottom: 18px; }
+.eyebrow-light { background: rgba(255, 255, 255, .12); color: var(--g-400); }
+.stats b { font-weight: 900; }
+
+/* nav: pill links */
+.nav { background: rgba(255, 255, 255, .88); }
+.nav-links { gap: 4px; }
+.nav-links a { padding: 9px 16px; border-radius: 99px; font-weight: 600; }
+.nav-links a::after { display: none; }
+.nav-links a:hover { background: var(--g-50); color: var(--g-800); }
+.nav-links a.active { background: var(--g-100); color: var(--g-800); }
+
+/* hero: rounded banner, copy left, swap calculator right */
+.hero { overflow: visible; padding: 20px 0 0; }
+.hero-banner { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; padding: 64px 56px; border-radius: 40px; color: #fff;
+  background: radial-gradient(60% 70% at 100% 0%, rgba(74, 222, 128, .28), transparent 65%), radial-gradient(50% 60% at 0% 100%, rgba(22, 163, 74, .45), transparent 65%), linear-gradient(140deg, var(--g-800), var(--g-950)); box-shadow: 0 40px 80px -40px rgba(6, 59, 39, .6); }
+.hero-banner::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background-image: radial-gradient(rgba(255, 255, 255, .13) 1px, transparent 1px); background-size: 26px 26px; mask-image: linear-gradient(100deg, #000, transparent 70%); }
+.kicker { display: block; font-size: 13px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--g-400); }
+.chip { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 7px 14px; border-radius: 99px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(74, 222, 128, .45); color: var(--g-200); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.hero h1 { margin: 20px 0; font-size: clamp(38px, 4.8vw, 68px); line-height: 1.02; letter-spacing: -.025em; font-weight: 900; text-transform: uppercase; color: #fff; }
+.hl { color: var(--g-400); white-space: normal; }
+.hl::after { display: none; }
+.hero .lead { color: var(--g-200); font-size: 17.5px; max-width: 520px; }
+.hero-cta { margin: 30px 0; }
+.btn-glass { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .28); color: #fff; backdrop-filter: blur(6px); }
+.btn-glass:hover { background: rgba(255, 255, 255, .18); }
+.hero-trust { color: var(--g-100); }
+.hero-trust svg { color: var(--g-400); }
+.hero-calc { min-width: 0; }
+.hero-calc .calc-card { box-shadow: 0 40px 90px -24px rgba(0, 0, 0, .55); }
+.hero .stats { margin-top: 28px; }
+
+/* swap calculator card (carswap-style) */
+.calc-card { padding: 24px; border-radius: 28px; color: var(--ink); text-align: left; }
+.cc-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; margin-bottom: 18px; border-bottom: 2px solid var(--ink); }
+.cc-head h3 { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; font-weight: 900; color: var(--g-600); }
+.live { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 99px; background: #eef2ef; color: var(--muted); font-size: 12px; font-weight: 700; }
+.live i { width: 7px; height: 7px; border-radius: 50%; background: #aab9b0; }
+.live.on { background: var(--g-100); color: var(--g-700); }
+.live.on i { background: var(--g-500); box-shadow: 0 0 0 3px rgba(22, 163, 74, .25); animation: pulse 2s infinite; }
+.field + .field { margin-top: 16px; }
+.field label { display: block; margin-bottom: 8px; font-size: 10.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: #4b5f54; }
+.sel-btn { background: var(--field); }
+.seg { background: var(--field); }
+.vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin: 18px 0 0; }
+.vs > div { display: grid; gap: 2px; padding: 12px 14px; border-radius: 16px; background: var(--field); border: 1px solid var(--line); min-width: 0; }
+.vs small { font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.vs b { font-size: 13px; font-weight: 700; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vs strong { font-size: 15px; color: var(--g-700); }
+.vs-target { background: var(--g-50) !important; border-color: var(--g-200) !important; }
+.vs-swap { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--g-600); color: #fff; box-shadow: 0 0 0 4px #fff; }
+.result { margin: 16px 0; padding: 20px 22px; }
+.result > strong { font-size: clamp(32px, 4vw, 42px); margin-bottom: 12px; font-weight: 900; }
+
+/* cdcare-style category tiles: white card + tinted label strip */
+.cat { background: #fff; display: flex; flex-direction: column; }
+.cat-go { margin-top: auto; justify-content: space-between; padding: 11px 16px; border-radius: 14px; background: var(--g-50); text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 800; transition: background .3s, color .3s; }
+.cat:hover .cat-go { background: rgba(255, 255, 255, .16); }
+.cat p { margin-bottom: 24px; }
+
+/* mobile: app-style bottom tab bar */
+.tabbar { display: none; }
+@media (max-width: 1024px) {
+  .hero-banner { grid-template-columns: 1fr; padding: 44px 32px; gap: 40px; }
+}
+@media (max-width: 640px) {
+  body { padding-bottom: 84px; }
+  .hero { padding-top: 12px; }
+  .hero-banner { padding: 32px 18px 18px; border-radius: 28px; }
+  .hero-banner .hero-copy { padding: 0 6px; }
+  .vs { grid-template-columns: 1fr; }
+  .vs-swap { justify-self: center; transform: rotate(90deg); margin: -2px 0; }
+  .tabbar { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; z-index: 60; left: 10px; right: 10px; bottom: 10px; padding: 8px; border-radius: 24px; background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); border: 1px solid var(--line); box-shadow: 0 16px 40px -12px rgba(6, 59, 39, .4); }
+  .tabbar a, .tabbar button { display: grid; justify-items: center; gap: 3px; padding: 8px 0; border: 0; background: none; border-radius: 16px; font-size: 11px; font-weight: 700; color: var(--muted); }
+  .tabbar a.active, .tabbar button.active { background: var(--g-100); color: var(--g-700); }
+  .tabbar .rot { transform: rotate(45deg); }
+  /* the tab bar is the mobile nav, so no second toggle in the header; keep the main CTA there instead */
+  .burger { display: none; }
+  .nav-right .btn { display: inline-flex; }
+  .mobile-menu { inset: 72px 0 0; z-index: 55; padding-bottom: 96px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

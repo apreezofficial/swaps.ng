@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
+import Icon from './Icons';
 import { NAV } from '@/lib/nav';
 import { api } from '@/lib/api';
 
@@ -30,6 +31,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
+    <>
     <header className={`nav ${scrolled ? 'scrolled' : ''} ${open ? 'menu-open' : ''}`}>
       <div className="wrap nav-in">
         <Logo />
@@ -54,6 +56,25 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </header>
+    {/* outside <header>: its backdrop-filter would otherwise trap these fixed elements */}
+      <nav className="tabbar" aria-label="Quick links">
+        {[
+          ['/', 'Home', 'home'],
+          ['/products', 'Products', 'store'],
+          ['/price-a-swap', 'Swap', 'swap'],
+          ['/escrow', 'Escrow', 'shield'],
+        ].map(([href, label, icon]) => (
+          <Link key={label} href={href} className={path === href ? 'active' : ''}>
+            <Icon name={icon} size={22} />
+            <span>{label}</span>
+          </Link>
+        ))}
+        <button type="button" className={open ? 'active' : ''} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+          <Icon name={open ? 'plus' : 'menu'} size={22} className={open ? 'rot' : ''} />
+          <span>{open ? 'Close' : 'More'}</span>
+        </button>
+      </nav>
       <div className="mobile-menu" hidden={!open}>
         <nav aria-label="Mobile">
           {NAV.map((n) => (
@@ -63,6 +84,6 @@ export default function Navbar() {
           <Link href="/early-access" className="btn btn-primary btn-lg btn-block">Get early access</Link>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
