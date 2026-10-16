@@ -2,6 +2,7 @@ import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import HideOnAuth from '@/components/HideOnAuth';
 import './globals.css';
 
 const display = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-display', weight: ['500', '600', '700', '800'] });
@@ -19,9 +20,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
-        <Navbar />
+        <HideOnAuth><Navbar /></HideOnAuth>
         <main>{children}</main>
-        <Footer />
+        <HideOnAuth><Footer /></HideOnAuth>
         <ScrollReveal />
       </body>
     </html>

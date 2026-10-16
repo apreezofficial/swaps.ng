@@ -1,4 +1,5 @@
 import Icon from '../Icons';
+import Logo from '../Logo';
 
 const points = [
   ['mail', 'No passwords, ever', 'Sign in with a one-time link sent to your email.'],
@@ -10,6 +11,7 @@ export default function AuthShell({ title, subtitle, children, footer }) {
   return (
     <section className="auth">
       <div className="auth-main">
+        <div className="auth-logo"><Logo /></div>
         <div className="auth-card">
           <h1>{title}</h1>
           <p className="auth-sub">{subtitle}</p>

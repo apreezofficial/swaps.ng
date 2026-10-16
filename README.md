@@ -21,6 +21,24 @@ npm run dev
 
 The Next.js app proxies `/api/*` to the PHP API (`BACKEND_URL`, default `http://localhost:8000`).
 
+## Demo logins (local only)
+
+There are no passwords. Seed the demo accounts, then sign in with a magic link:
+
+```bash
+cd backend && php seed.php
+```
+
+| Account | Email | 2FA |
+| --- | --- | --- |
+| Demo | `demo@swaps.ng` | off |
+| Demo with 2FA | `demo2fa@swaps.ng` | on |
+
+1. Go to `/login`, enter the email, then click **Open the link** (dev mode shows it instead of sending email).
+2. For the 2FA account, enter the current code from `php seed.php --code` (or add secret `DEMOSWAPS2FASECRETKEY` to an authenticator app). Recovery codes: `demo1-swap1`, `demo2-swap2`.
+
+The seed script refuses to run when `APP_ENV=production`.
+
 ## Auth
 
 - Passwordless sign-in and registration with a **magic link** (dev mode writes emails to `backend/storage/mail.log`)

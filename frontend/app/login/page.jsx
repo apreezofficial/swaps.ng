@@ -12,7 +12,7 @@ export default async function Login({ searchParams }) {
       subtitle="Log in with a magic link, a passkey or Google. No password to remember."
       footer={<>New to SwapS.ng? <Link href="/register">Create an account</Link></>}
     >
-      <MagicForm mode="login" reason={sp?.error || ''} />
+      <MagicForm mode="login" reason={sp?.error || ''} initialEmail={sp?.email || ''} />
     </AuthShell>
   );
 }
